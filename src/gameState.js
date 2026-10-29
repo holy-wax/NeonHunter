@@ -15,6 +15,7 @@ export const STATE_ROUND_END = 'round_end';
 export const STATE_BUFF_SELECT = 'buff_select';
 export const STATE_QUIZ_TUTORIAL = 'quiz_tutorial';
 export const STATE_QUIZ = 'quiz';
+export const STATE_TUTORIAL = 'tutorial';
 
 export const MAX_ROUNDS = 10;
 export const ROUND_TIME = 40;
@@ -74,6 +75,7 @@ let comboCount = 0;
 let collectCoins = 0;
 let finalIncome = 0;
 
+let hasPlayedBefore = false;
 let currentRound = 1;
 let roundTimeLeft = ROUND_TIME;
 
@@ -101,6 +103,21 @@ export function startGame() {
     roundTimeLeft = getRoundTimeLimit();
     currentBuffOptions = [];
     activeBuffs = [];
+}
+
+// 新增：主菜单按下空格后的逻辑
+export function handleMenuStart() {
+    if (hasPlayedBefore) {
+        startGame(); // 玩过了，直接开始
+    } else {
+        state = STATE_TUTORIAL; // 没玩过，进教程
+    }
+}
+
+// 新增：教程看完按下空格后的逻辑
+export function finishTutorial() {
+    hasPlayedBefore = true; // 标记为已玩过
+    startGame();            // 正式开始游戏
 }
 
 export function returnToMenu() {

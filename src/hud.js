@@ -212,3 +212,25 @@ export function renderQuizTutorial() {
     // 4. 底部提示
     drawText('按下空格键表示我已知晓规则并正式开始', vec2(0, -10), 1.2, rgb(255/255, 221/255, 0/255));
 }
+
+
+// ---- 首次游戏教程 ----
+export function renderTutorial() {
+    // 半透明黑底遮罩
+    drawRect(vec2(0, 0), vec2(50, 28), rgb(0, 0, 0, 0.9));
+
+    drawText('操作指南', vec2(0, 9), 2.5, rgb(255/255, 221/255, 0/255));
+
+    const textColor = rgb(0.9, 0.9, 0.9);
+    const x = -16;
+    
+    drawText('鼠标控制挡板移动', vec2(x, 5), 1.1, textColor, 0, rgb(0,0,0), 'left');
+    drawText('按下 Space(空格)键 或鼠标左键 使挡板改变颜色', vec2(x, 3), 1.1, textColor, 0, rgb(0,0,0), 'left');
+    drawText('颜色相同时接取小方块才会获得奖励', vec2(x, 1), 1.1, textColor, 0, rgb(0,0,0), 'left');
+    drawText('错接或漏接都会扣除生命值', vec2(x, -1), 1.1, textColor, 0, rgb(0,0,0), 'left');
+    drawText('黄方块漏接时不会扣除生命值', vec2(x, -4), 1.1, textColor, 0, rgb(0,0,0), 'left');
+    drawText('按下 Esc 键暂停', vec2(x, -6), 1.2, textColor, 0, rgb(0,0,0), 'left');
+
+    // 底部提示
+    drawText('按下空格键开始游戏', vec2(0, -10), 1.5, rgb(0.2, 0.9, 0.2));
+}

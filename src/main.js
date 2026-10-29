@@ -7,18 +7,19 @@ import {
     pauseGame, resumeGame, startNextRound, enterQuiz, updateTimer, startQuizGame,
     getState, getLives, getRoundInfo, selectBuff,
     STATE_MENU, STATE_PLAYING, STATE_PAUSED, STATE_GAMEOVER, 
-    STATE_ROUND_END, STATE_QUIZ, STATE_QUIZ_TUTORIAL, STATE_BUFF_SELECT
+    STATE_ROUND_END, STATE_QUIZ, STATE_QUIZ_TUTORIAL, STATE_BUFF_SELECT,
+    handleMenuStart,finishTutorial,STATE_TUTORIAL
 } from './gameState.js';
 import { 
     renderHUD, renderMenu, renderGameOver, renderPauseOverlay, 
     renderRoundEnd, renderBuffSelect, renderQuizTutorial, 
-    setCoins, getCoins 
+    setCoins, getCoins ,renderTutorial
 } from './hud.js';
 import { 
     initQuiz, getQuizData, playerBet, playerGuess, nextQuizRound, 
     PHASE_BETTING, PHASE_GUESSING, PHASE_RESULT 
 } from './quiz.js';
-import { renderQuiz } from './quizUI.js'; // 注意这里文件名如果是全小写请对应修改
+import { renderQuiz } from './quizui.js'; // 注意这里文件名如果是全小写请对应修改
 
 setTileDefaultPadding(1);
 
@@ -35,9 +36,17 @@ function gameUpdate() {
     // ================= 主菜单 =================
     if (state === STATE_MENU) {
         if (keyWasPressed('Space')) {
-            startGame();
+            handleMenuStart();
             setCoins(0);
             initBlocks();
+        }
+        return;
+    }
+
+     // ================= 教程界面 =================
+    if (state === STATE_TUTORIAL) {
+        if (keyWasPressed('Space')) {
+            finishTutorial(); // 正式开始游戏
         }
         return;
     }
@@ -169,6 +178,10 @@ function gameRenderPost() {
     if (state === STATE_MENU) {
         renderMenu();
     } 
+    
+    else if (state === STATE_TUTORIAL) {
+        renderTutorial(); 
+    }
     else if (state === STATE_PLAYING || state === STATE_PAUSED) {
         renderBlocks();
         renderPaddle();
