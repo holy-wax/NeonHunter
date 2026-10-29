@@ -5,7 +5,7 @@ export default defineConfig({
     // Use relative asset paths so the build works from any subdirectory
     // (GitHub Pages project sites, itch.io uploads, etc.). Set to '/' if
     // deploying to a domain root.
-    base: './',
+    base: '/NeonHunter/',
     plugins: [
         {
             // LittleJS owns global engine state (canvas, WebGL, input, RAF
