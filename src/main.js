@@ -19,7 +19,7 @@ import {
     initQuiz, getQuizData, playerBet, playerGuess, nextQuizRound, 
     PHASE_BETTING, PHASE_GUESSING, PHASE_RESULT 
 } from './quiz.js';
-import { renderQuiz } from './quizui.js'; // 注意这里文件名如果是全小写请对应修改
+import { renderQuiz } from './quizUI.js'; // 注意这里文件名如果是全小写请对应修改
 
 setTileDefaultPadding(1);
 
