@@ -7,7 +7,7 @@ import * as goldBuff from './buffs/goldBuff.js';
 
 // ============ 可调试参数 ============
 export let spawnInterval = 2.0; // 生成间隔（秒）  默认为2.0
-export let fallSpeed = 4.0; // 下落速度（单位/秒）  默认为4.0
+export let fallSpeed = 5.0; // 下落速度（单位/秒）  默认为5.0
 export let yellowChance = 0.15; // 生成黄色方块的概率（0~1）
 export let normalBlockPrice = 10; // 蓝/粉方块单价
 export let yellowBlockPrice = 100;// 黄色方块单价
