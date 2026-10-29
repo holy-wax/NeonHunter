@@ -154,11 +154,11 @@ export function renderRoundEnd() {
     drawText('按 D 进入猜谜环节', vec2(-6, -2), 1.5, COLOR_ROUND_END_HINT, 0, rgb(0,0,0), 'left');
 }
 
-// ---- 猜谜环节（占位）----
-export function renderQuiz() {
-    drawText('猜谜环节开发中...', vec2(0, 2), 2, rgb(1, 1, 1));
-    drawText('按下空格键返回主菜单', vec2(0, -2), 1.2, rgb(0.7, 0.7, 0.7));
-}
+// // ---- 猜谜环节（占位）----
+// export function renderQuiz() {
+//     drawText('猜谜环节开发中...', vec2(0, 2), 2, rgb(1, 1, 1));
+//     drawText('按下空格键返回主菜单', vec2(0, -2), 1.2, rgb(0.7, 0.7, 0.7));
+// }
 
 export function renderBuffSelect() {
     const options = getBuffOptions();
