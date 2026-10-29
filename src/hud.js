@@ -136,9 +136,9 @@ export function renderGameOver() {
 function renderRoundInfo() {
     const info = getRoundInfo();
     // 把时间放在稍上方，字号 1.2
-    drawText('剩余时间: ' + Math.ceil(info.timeLeft) + 's', vec2(0, 12), 1.2, rgb(0.8, 0.8, 0.8));
+    drawText('剩余时间: ' + Math.ceil(info.timeLeft) + 's', vec2(0, 11), 1.2, rgb(0.8, 0.8, 0.8));
     // 把轮次信息放在下方，格式 "1 / 10"，字号调小为 1.0
-    drawText(info.current + ' / ' + info.max, vec2(0, 11), 1.0, rgb(1, 1, 1));
+    drawText(info.current + ' / ' + info.max, vec2(0, 10), 1.0, rgb(1, 1, 1));
 }
 
 
